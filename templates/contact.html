@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
   
     <main id="main">
   
       <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/breadcrumbs-bg.jpg');">
+      <div class="breadcrumbs d-flex align-items-center" style="background-image: url('{% static 'img/about_header.jpg' %}');">
         <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
   
           <h2>Contact</h2>
@@ -26,7 +27,7 @@
               <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-map"></i>
                 <h3>Our Address</h3>
-                <p>Bukhara, Uzbekistan</p>
+                <p>15 Haqiqat st., Bukhara, Uzbekistan</p>
               </div>
             </div><!-- End Info Item -->
   
@@ -58,17 +59,17 @@
               <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="row gy-4">
                   <div class="col-lg-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required>
                   </div>
                   <div class="col-lg-6 form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="example@gmail.com" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                  <textarea class="form-control" name="message" rows="5" placeholder="I want to join the masterclass..." required></textarea>
                 </div>
                 <div class="my-3">
                   <div class="loading">Loading</div>

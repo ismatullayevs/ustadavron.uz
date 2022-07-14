@@ -1,10 +1,18 @@
-<footer id="footer" class="footer">
+{% load static %}
+
+<style>
+  footer::before {
+    background: rgba(0,0,0, 0.6)!important;
+  }
+</style>
+
+<footer id="footer" class="footer" style="background-image: url('{% static 'img/footer_img.jpg' %}')">
 
     <div class="footer-content position-relative">
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6" style="margin: 0 auto; text-align: center;">
             <div class="footer-info">
               <h3>UstaDavron.uz</h3>
               <p>
@@ -12,16 +20,16 @@
                 <strong>Phone:</strong> +998(90) 718-05-68<br>
                 <strong>Email:</strong> davron_35@mail.ru<br>
               </p>
-              <div class="social-links d-flex mt-3">
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+              <div class="social-links d-flex mt-3" style="justify-content: center;"> 
+                <a href="https://wa.me/+998907180568" class="d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
                 <a href="https://www.facebook.com/davron.toshev.3" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
                 <a href="https://instagram.com/ustadavron_miniatyura?igshid=YmMyMTA2M2Y=" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
+                <a href="https://t.me/masterdavronminiaturecenter" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
               </div>
             </div>
           </div><!-- End footer info column-->
 
-          <div class="col-lg-2 col-md-3 footer-links">
+          {% comment %} <div class="col-lg-2 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><a href="#">Home</a></li>
@@ -63,7 +71,7 @@
               <li><a href="#">Trodelas</a></li>
               <li><a href="#">Flexo</a></li>
             </ul>
-          </div><!-- End footer links column-->
+          </div><!-- End footer links column--> {% endcomment %}
 
         </div>
       </div>

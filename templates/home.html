@@ -12,7 +12,6 @@
         <div class="row justify-content-center">
           <div class="col-lg-6 text-center">
             <h2 data-aos="fade-down">Welcome to <br> <span>World of Miniatures</span></h2>
-            <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Get Started</a>
           </div>
         </div>
@@ -49,30 +48,23 @@
               <h3>Don't miss the chance. Create a masterpiece</h3>
               <p>Join our creative masterclass. Experts will teach you the basics of miniature art and you will be able to try it firsthand. </p>
               <p>You will try different types of art: miniature, marbling art (ebru), paper making process and much more...</p>
+              <p>Become an owner of a miniature work (order miniature work)</p>
             </div>
           </div>
 
           <div class="col-lg-5" data-aos="fade">
-            <form action="forms/quote.php" method="post" class="php-email-form">
+            {{ form.non_field_errors }}
+            <form action="." method="post" class="php-email-form">
+              {% csrf_token %}
               <h3>Join our masterclass</h3>
               <p>We will contact you as soon as we get your message.</p>
               <div class="row gy-3">
 
+              {% for field in form %}
                 <div class="col-md-12">
-                  <input type="text" name="name" class="form-control" placeholder="Name" required>
+                  {{ field }}
                 </div>
-
-                <div class="col-md-12 ">
-                  <input type="email" class="form-control" name="email" placeholder="Email" required>
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="phone" placeholder="Phone" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
+              {% endfor %}
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
@@ -92,12 +84,11 @@
     </section><!-- End Get Started Section -->
     
     <!-- ======= Constructions Section ======= -->
-    <section id="constructions" class="constructions">
+    <section id="works" class="constructions">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our products</h2>
-          <p>We don't just make products. We make traditions</p>
+          <h2>Miniature works</h2>
         </div>
         
         <div class="row gy-4">
@@ -256,7 +247,7 @@
 
     <section id="about-video" style="padding: 0 10px; margin-top: 50px;">
       <div style="max-width: 1100px; margin: 0 auto; aspect-ratio: 2/1">
-        <iframe style="width: 100%; height: 100%" src="https://www.youtube.com/embed/iy95PRrxLT4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe style="width: 100%; height: 100%" src="{{ page.youtube_video_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
 

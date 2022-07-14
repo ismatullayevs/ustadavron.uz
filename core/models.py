@@ -2,7 +2,6 @@ from django.db import models
 from slugify import slugify
 
 
-
 class CarouselImage(models.Model):
     image = models.ImageField(upload_to="images/")
 
@@ -43,3 +42,21 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('-created_at',)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=150)
+    subject = models.CharField(max_length=50)
+    message = models.TextField(max_length=2000)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.message
+
+    class Meta:
+        ordering = ('-created_at',)
+
+
+class HomePage(models.Model):
+    youtube_video_link = models.URLField()
