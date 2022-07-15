@@ -1,8 +1,8 @@
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['ustadavron.uz', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['ustadavron.uz', 'www.ustadavron.uz', 'localhost', '127.0.0.1']
 
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
