@@ -23,10 +23,10 @@ def home_page(request):
             contact.save()
 
             email_message = "\n".join(body.values())
-            # try:
-            #     send_mail(subject, email_message, "ustodavr@ustodavron.uz", ['ustodavr@ustodavron.uz', 'davron_35@mail.ru']) 
-            # except BadHeaderError:
-            #     return HttpResponse('Invalid header found.')
+            try:
+                send_mail(subject, email_message, "_mainaccount@ustadavron.uz", ['davron_35@mail.ru', 'ismatullayevpro@gmail.com']) 
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
             return redirect("home")
 
 
@@ -51,4 +51,34 @@ def about_page(request):
     return render(request, 'about.html')
 
 def contact_page(request):
-    return render(request, 'contact.html')
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            subject = form.cleaned_data['subject']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            body = {
+                'name': name,
+                'email': email,
+                'message': message,
+            }   
+
+            contact = Contact(name=name, subject=subject, email=email, message=message)
+            contact.save()
+
+            email_message = "\n".join(body.values())
+            try:
+                send_mail(subject, email_message, "_mainaccount@ustadavron.uz", ['davron_35@mail.ru', 'ismatullayevpro@gmail.com']) 
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect("home")
+
+
+    form = ContactForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'contact.html', context=context)

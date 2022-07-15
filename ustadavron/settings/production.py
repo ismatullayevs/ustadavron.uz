@@ -1,6 +1,6 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ustadavron.uz', 'www.ustadavron.uz', 'localhost', '127.0.0.1']
 
