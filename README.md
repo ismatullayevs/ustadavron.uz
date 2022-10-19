@@ -1,1 +1,1 @@
-# ustadavron.uz
+# [ustadavron.uz](https://ustadavron.uz)
